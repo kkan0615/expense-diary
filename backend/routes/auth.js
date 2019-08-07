@@ -1,11 +1,16 @@
 const express = require('express');
+const router = express.Router();
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
+const cors = require('cors');
 
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const User = require('../schemas/user');
 
-router.post('/join', isLoggedIn, async(req, res, next) => {
+//For cors error
+router.use(cors());
+
+router.post('/join', isNotLoggedIn, async(req, res, next) => {
     const { email, nickname, password } = req.body;
     try {
         const exUser = await User.findOne({ email: email });
@@ -13,7 +18,7 @@ router.post('/join', isLoggedIn, async(req, res, next) => {
             res.status(401).send('This email is already existed');
         }
         const bash = await bcrypt.hash(password, 12);
-
+        console.log(req.body);
         const user = new User({
             email: email,
             password: bash,
@@ -44,7 +49,7 @@ router.post('/login', isNotLoggedIn, (req, res, next) => {
                 console.error(loginError);
                 return next(loginError);
             }
-            return res.send('Logged in');
+            return res.send({ message: 'Logged in' });
         });
 
     }) (req, res, next);
