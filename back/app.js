@@ -8,10 +8,15 @@ const passport = require('passport');
 const passportConfig = require('./passport');
 require('dotenv').config();
 
+<<<<<<< HEAD
 /* Router Collection */
 const authRouter = require('./routes/auth');
 const expenseRouter = require('./routes/expense');
 const calendarRouter = require('./routes/calendar');
+=======
+const authRouter = require('./routes/auth');
+const expenseRouter = require('./routes/expense');
+>>>>>>> 9fdf3c5b52260536aa56ce6b709c0dd4739884cc
 
 const app = express();
 sequelize.sync();
@@ -42,7 +47,10 @@ app.use(passport.session());
 
 app.use('/auth', authRouter);
 app.use('/expense', expenseRouter);
+<<<<<<< HEAD
 app.use('/calendar', calendarRouter);
+=======
+>>>>>>> 9fdf3c5b52260536aa56ce6b709c0dd4739884cc
 
 const server = app.listen(app.get('port'), () => {
     console.log(app.get('port'), 'is wating you!');

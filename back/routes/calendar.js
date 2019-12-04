@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /******************************************************************************************************
  * Author: Youngjin Kwak
  * File name : calendar.js
@@ -7,12 +8,15 @@
  * Last update: 11/23/2019
 *****************************************************************************************************/
 
+=======
+>>>>>>> 9fdf3c5b52260536aa56ce6b709c0dd4739884cc
 const express = require('express');
 const { isLoggedIn } = require('./middlewares');
 const { Expense } = require('../models');
 
 const router =express.Router();
 
+<<<<<<< HEAD
 /******************************************************************************************************
  * Author: Youngjin Kwak
  * File name : calendar.js
@@ -26,6 +30,12 @@ router.post('/', isLoggedIn, async(req, res, next) => {
         const { year, months } = req.body;
 
         /* Find all expenses */
+=======
+router.post('/', isLoggedIn, async(req, res, next) => {
+    try {
+        const { year, month } = req.body;
+
+>>>>>>> 9fdf3c5b52260536aa56ce6b709c0dd4739884cc
         const expenses = await Expense.findAll({
             order: [['day', 'ASC']],
             where: {
@@ -34,7 +44,10 @@ router.post('/', isLoggedIn, async(req, res, next) => {
             }
         });
 
+<<<<<<< HEAD
         /* Sum and average */
+=======
+>>>>>>> 9fdf3c5b52260536aa56ce6b709c0dd4739884cc
         const info = await Expense.findAll({
             attributes: [
                 [Expense.sequelize.fn('AVG', Expense.sequelize.col('money')), 'moneyAvg'],
@@ -58,6 +71,7 @@ router.post('/', isLoggedIn, async(req, res, next) => {
     }
 });
 
+<<<<<<< HEAD
 /**
  * Author: Youngjin Kwak
  * File name : calendar.js
@@ -126,4 +140,6 @@ router.post('/detail', isLoggedIn, async(req, res, next) => {
  * startedAt: 10/23/2019
  * Last update: 11/23/2019
  */
+=======
+>>>>>>> 9fdf3c5b52260536aa56ce6b709c0dd4739884cc
 module.exports = router;

@@ -5,8 +5,12 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "nodemon app",
     "dev": "nodemon app"
+=======
+    "start": "nodemon app"
+>>>>>>> 9fdf3c5b52260536aa56ce6b709c0dd4739884cc
   },
   "author": "Youngjin Kwak (Requiem)",
   "license": "MIT",

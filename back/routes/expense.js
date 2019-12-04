@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /****************************************************************************************************
  * Authour: Youngjin Kwak(곽영진)
  * Purpose:
@@ -28,6 +29,20 @@ router.post('/create', isLoggedIn, async(req, res, next) => {
         const { title, content, color, money, year, month, day /*, tag */ } = req.body;
 
         /* Create expense */
+=======
+const express = require('express');
+const passport = require('passport');
+const sequelize = require('sequelize');
+const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
+const { User, Expense } = require('../models');
+
+const router = express.Router();
+
+router.post('/create', isLoggedIn, async(req, res, next) => {
+    try {
+        const { title, content, color, money, year, month, day } = req.body;
+
+>>>>>>> 9fdf3c5b52260536aa56ce6b709c0dd4739884cc
         const expense = await Expense.create({
             title: title,
             content: content,
@@ -51,16 +66,24 @@ router.post('/create', isLoggedIn, async(req, res, next) => {
             }
         });
 
+<<<<<<< HEAD
         /*
         const tags = await tags.findAll({
 
         });
         */
+=======
+        console.log(info);
+
+>>>>>>> 9fdf3c5b52260536aa56ce6b709c0dd4739884cc
         return res.json({
             expense,
             avg: parseInt(info[0].dataValues.moneyAvg),
             sum: info[0].dataValues.moneySUM,
+<<<<<<< HEAD
             /* tags, */
+=======
+>>>>>>> 9fdf3c5b52260536aa56ce6b709c0dd4739884cc
         });
     } catch (error) {
         console.error(error);
