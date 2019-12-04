@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const cors = require('cors');
 
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
@@ -34,6 +35,8 @@ router.post('/join', isNotLoggedIn, async(req, res, next) => {
 });
 
 router.post('/login', isNotLoggedIn, (req, res, next) => {
+    console.log(req.body);
+
     passport.authenticate('local', (authError, user, info) => {
         if (authError) {
             console.error(authError);
@@ -49,7 +52,10 @@ router.post('/login', isNotLoggedIn, (req, res, next) => {
                 console.error(loginError);
                 return next(loginError);
             }
-            return res.send({ message: 'Logged in' });
+
+            console.log(user);
+
+            return res.json({ message: 'Logged in', user: user });
         });
 
     }) (req, res, next);

@@ -1,0 +1,32 @@
+{
+  "name": "expense-diary-front",
+  "version": "1.0.0",
+  "description": "Expesne-diary-front",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Youngjin Kwak (Requiem)",
+  "license": "ISC",
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^12.4.0",
+    "@ckeditor/ckeditor5-vue": "^1.0.0",
+    "@nuxtjs/axios": "^5.6.0",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "axios": "^0.19.0",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "nuxt": "^2.9.2",
+    "tiptap": "^1.26.3",
+    "tiptap-extensions": "^1.28.3",
+    "vue": "^2.6.10",
+    "vue-ckeditor5": "^0.4.1",
+    "vue-full-calendar": "^2.7.0",
+    "vuejs-datepicker": "^1.6.2"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0"
+  }
+}

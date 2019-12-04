@@ -1,34 +1,29 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import axios from 'axios'
-import HelloWorld from '@/components/HelloWorld'
-import calendar from '@/components/calendar'
-import login from '@/components/login'
-import register from '@/components/register'
+import VueRouter from 'vue-router'
 
-Vue.use(Router)
+import App from '../App.vue'
+import test from '../components/test.vue'
+import login from '../components/login.vue'
 
-export default new Router({
+Vue.use(VueRouter)
+
+export default new VueRouter({
+  mode: 'history',
   routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: login
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: register
-    },
-    {
-      path: '/calendar',
-      name: 'calendar',
-      component: calendar
-    }
+      {
+        path: '/',
+        component: App,
+        name: 'home'
+      },
+      {
+        path: '/test',
+        component: test,
+        name: 'test'
+      },
+      {
+        path: '/login',
+        component: login,
+        name: 'login'
+      }
   ]
 })
