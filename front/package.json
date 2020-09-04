@@ -26,7 +26,7 @@
     "vuejs-datepicker": "^1.6.2"
   },
   "devDependencies": {
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "sass-loader": "^8.0.0"
   }
 }
